@@ -1,0 +1,20 @@
+<h2 class="title">Exibindo Dados do Amigo</h2>
+<HR SIZE=5 color="blue">
+	<table>
+		<tr>
+			<td><b>Nome:</b></td>
+			<td><%= @friend.name %></td>
+		</tr>
+
+		<tr>
+			<td><b>Data de Nascimento:</b></td>
+			<td><%= @friend.birthday.strftime("%d/%m/%Y") %></td>
+		</tr>
+
+		<tr>
+			<td><b>Telefone:</b></td>
+			<td><%= @friend.phone %></td>
+		</tr>
+	</table>
+<br><HR SIZE=5 color="blue">
+<%= link_to image_tag("voltar.png") , friends_path %>

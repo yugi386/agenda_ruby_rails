@@ -2,7 +2,9 @@ Agenda::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :friends			# rota para o controlador friends.
+  resources :friends						# rota para o controlador friends.
+  match 'friends/:id' => 'friends#show'		# Exemplo de rota mapeada pelo controller e pela ID do registro...
+  
   root :to => 'friends#index'	# configura a rota padrao
   
   # Sample of regular route:

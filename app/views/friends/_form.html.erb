@@ -1,0 +1,43 @@
+﻿<%= form_for(@friend) do |f| %>
+
+	<!- GERENCIAMENTO DE MENSAGENS DE ERRO -->
+	<% if @friend.errors.any? %>
+		<div id="error_explanation">
+			<% if @friend.errors.count == 1 %>
+				<strong>Um erro foi encontrado:</strong>
+			<% else %>
+				<strong><%= @friend.errors.count %> erros foram encontrados:</strong>
+			<% end	%>
+			<ul>
+				<% @friend.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>	
+				<% end %>
+			</ul>
+		</div>
+		<HR SIZE=5 color="blue">
+	<% end %>
+
+	<!-- INICIO DO FORMULARIO -->
+	<table>
+		<tr>
+			<td><%= f.label :Nome %></td>
+			<td><%= f.text_field :name, :maxlength => 60 %></td>
+		</tr>
+
+		<tr>
+			<td><%= f.label :Data_de_Nascimento %></td>
+			<td><%= f.date_select(:birthday, :order => [:day, :month, :year], :start_year => 1900, :end_year => 2100, :use_month_names => %w(Janeiro Fevereiro Março Abril Maio Junho Julho Agosto Setembro Outubro Novembro Dezembro) ) %></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :Telefone %></td>
+			<td><%= f.text_field :phone, :maxlength => 14 %></td>
+		</tr>
+	</table>
+	
+	<div class="actions">
+		<br />
+		<%= f.submit "Salvar" %>
+	</div>
+  
+<% end %>
